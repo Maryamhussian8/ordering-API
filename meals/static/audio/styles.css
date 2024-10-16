@@ -1,0 +1,163 @@
+/* Reset CSS */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f8f9fa;
+  color: #333;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Meal Section */
+.meal-section {
+  padding: 40px 0;
+}
+
+.meal-header {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #28a745;
+  margin-bottom: 40px;
+}
+
+.meal-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+/* Meal Card */
+.meal-card {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.meal-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.meal-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.meal-card-content {
+  padding: 15px;
+  text-align: center;
+}
+
+.meal-card-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.meal-card-description {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 15px;
+}
+
+.meal-card-price {
+  font-size: 1.2rem;
+  color: #28a745;
+  font-weight: bold;
+}
+
+.btn-order {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.btn-order:hover {
+  background-color: #218838;
+}
+
+/* Media Queries */
+
+/* Smaller screens: Max width 768px */
+@media (max-width: 768px) {
+  .meal-header {
+    font-size: 2rem;
+  }
+
+  .meal-card-title {
+    font-size: 1.3rem;
+  }
+
+  .meal-card-description {
+    font-size: 0.9rem;
+  }
+
+  .meal-card-price {
+    font-size: 1rem;
+  }
+
+  .meal-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Even smaller screens: Max width 500px */
+@media (max-width: 500px) {
+  .meal-header {
+    font-size: 1.8rem;
+  }
+
+  .meal-card-title {
+    font-size: 1.2rem;
+  }
+
+  .meal-card-description {
+    font-size: 0.8rem;
+  }
+
+  .meal-card-price {
+    font-size: 0.9rem;
+  }
+
+  .btn-order {
+    font-size: 0.9rem;
+    padding: 8px 15px;
+  }
+
+  .meal-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Tablets: 769px to 1200px */
+@media (min-width: 769px) and (max-width: 1200px) {
+  .meal-header {
+    font-size: 2.2rem;
+  }
+
+  .meal-card-title {
+    font-size: 1.4rem;
+  }
+
+  .btn-order {
+    font-size: 1rem;
+  }
+}

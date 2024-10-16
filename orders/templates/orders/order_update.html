@@ -1,0 +1,72 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Order</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        form {
+            background: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        button {
+            padding: 10px 15px;
+            color: white;
+            background-color: #0019a4;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .readonly {
+            background-color: #e9ecef; 
+            border: 1px solid #ced4da; 
+            border-radius: 0.25rem;
+            padding: 0.375rem 0.75rem; 
+            color: #495057;
+        }
+    </style>
+</head>
+<body>
+
+
+    <div class="order-details">
+        <h2>Order Details</h2>
+        <p><strong>Order ID:</strong> {{ object.id }}</p>
+        <p><strong>Total Price:</strong> {{ object.total_price }}</p>
+        <p><strong>Status:</strong> {{ object.status }}</p>
+        <p><strong>Order Date:</strong> {{ object.order_date }}</p>
+    </div>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        
+        <div class="form-group">
+            <h2>Select Meals</h2>
+            {{ formset.management_form }} 
+            {% for form in formset %}
+                {{ form.as_p }}  
+            {% endfor %}
+        </div>
+        
+        <button type="submit">Create Order</button>
+    </form>
+</body>
+</html>
