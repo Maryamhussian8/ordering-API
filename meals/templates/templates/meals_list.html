@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %} 
+{% block title %}The Menu{% endblock %}
+
+{% block content %}
+    {% if messages %}
+        <div class="messages">
+            {% for message in messages %}
+                <div class="alert {% if message.tags %} alert-{{ message.tags }} {% endif %}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+
+    <h1 style="text-align: center; margin-bottom: 20px;">Menu</h1>
+
+    <div style="text-align: center; margin-bottom: 20px;">
+        <a href="{% url 'meals_create' %}" 
+           style="display: inline-block; background-color: #007bff; color: white; padding: 10px 15px; border-radius: 5px; text-decoration: none; font-size: 16px;">
+           Add New Meal
+        </a>
+    </div>
+
+    <div class="food-container" style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
+        {% for meal in object_list %}
+        <div class="food-type" style="width: 100%; max-width: 300px; border: 1px solid #ccc; border-radius: 5px; background-color: #fff; overflow: hidden;">
+            
+            <div style="padding: 15px;">
+                <a href="{% url 'meals_detail' meal.id %}" 
+                   style="font-weight: bold; color: #333; text-decoration: none; font-size: 18px;">{{ meal.name }}</a>
+                <p style="color: #666; margin: 10px 0;">${{ meal.price }}</p>
+                <a href="{% url 'meals_detail' meal.id %}" 
+                   style="display: inline-block; background-color: #28a745; color: white; padding: 8px 12px; border-radius: 5px; text-decoration: none; font-size: 14px;">
+                   Order Now
+                </a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <audio autoplay loop controls src="{% static 'css/a1.mp3' %}" style="width: 100%; margin-top: 20px;"></audio>
+{% endblock %}
